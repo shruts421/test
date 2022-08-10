@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Blogs App</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+    integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/js/formInput.js" ></script>
+</head>
+
+<body>
+  <div class="main-box">
+    <% blog.forEach((blog) => { %> 
+    <form name="blogForm" method="POST" onsubmit="return validateInput()" action="/edit-blog/<%=blog.id%>">
+      <div class="banner">
+        <h1>Nagarro Blogs App</h1>
+      </div>
+      <div class="main-header">
+        <h2>Modify Blog Details</h2>
+    </div>
+      <div class="item">
+        <h3>Title</h3>
+        <input type="text" placeholder="Enter Blog Title" name="title" value='<%=blog.title%>' />
+      </div>
+      
+      <div class="item">
+        <h3>Category</h3>
+        <input type="text" placeholder="Enter Blog Category" name="category" value='<%=blog.category%>' />
+      </div>
+      <div class="item">
+        <h3>Content</h3>
+        <textarea rows="4" name="content" ><%=blog.content%></textarea>
+      </div>
+      <div class="btn-block">
+        <a class="button" href="/blogs">Back to Home</a>
+        <button type="submit">Update Blog</button>
+      </div>
+    </form>
+    <%}) %>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Blogs App</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+        integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <div class="main-box">
+        <% blog.forEach((blog)=> { %>
+            <div class="detail">
+                <div class="banner">
+                    <h1>Nagarro Blogs App</h1>
+                </div>
+                <div class="main-header">
+                    <h2>Blog Details</h2>
+                </div>
+                <div class="item">
+                    <h3>Title</h3>
+                    <p>
+                        <%=blog.title%>
+                    </p>
+                </div>
+                <hr>
+                <div class="item">
+                    <h3>Category</h3>
+                    <p>
+                        <%=blog.category%>
+                    </p>
+                </div>
+                <hr>
+                <div class="item">
+                    <h3>Content</h3>
+                    <p>
+                        <%=blog.content%>
+                    </p>
+                </div>
+                <div class="btn-block">
+                    <a class="button" href="/blogs">Back to Home</a>
+                    <a class="button" href="/edit-blog/<%=blog.id%>">Update Blog</a>
+                </div>
+            </div>
+            <%}) %>
+    </div>
+</body>
+
+</html>

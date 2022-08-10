@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Blogs App</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+        integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/home.css">
+</head>
+
+<body>
+    <div class="main-box">
+
+        <div class="detail">
+            <div class="banner">
+                <h1>Nagarro Blogs App</h1>
+            </div>
+            <div class="main-header">
+                <h2>Available Blogs List</h2>
+            </div>
+
+            <div class="btn-block">
+                <a class="button" href="/add-blog">Add New Blog</a>
+
+            </div>
+            <div class="table-div">
+                <table class="table" align="center">
+                    <tr class="table-heading">
+                        <th>Blog Title</th>
+                        <th>Category</th>
+                        <th>Action</th>
+                    </tr>
+
+                    <% blogs.forEach((blog)=> { %>
+                        <tr>
+                            <td>
+                                <div class="alert alert-secondary" role="alert" align="center">
+                                    <h3><span>
+                                            <%=blog.title%>
+                                        </span></h3>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="alert alert-secondary" role="alert" align="center">
+                                    <h3><span>
+                                            <%=blog.category%>
+                                        </span></h3>
+                                </div>
+                            </td>
+                            <td>
+                                <form method="POST" action="/delete-blog/<%=blog.id%>">
+                                    <div class="alert alert-light" role="alert" align="center">
+
+                                        <button type="submit" class="delete-button"> ❌ Delete &nbsp;</button>&nbsp;
+                                        &nbsp;
+                                        <a type="btn" class="btn btn-outline-info" role="button"
+                                            href="/edit-blog/<%=blog.id%>"> Edit 📝 &nbsp;</a>
+                                        <a type="btn" class="btn btn-outline-info" role="button"
+                                            href="/blog/<%=blog.id%>"> Details 📝</a>
+                                </form>
+            </div>
+            </td>
+            </tr>
+            <%}) %>
+                </table>
+        </div>
+    </div>
+    <hr>
+    </div>
+</body>
+
+</html>
